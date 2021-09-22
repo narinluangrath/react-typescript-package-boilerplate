@@ -2,23 +2,34 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    'jest/globals': true,
   },
   extends: [
-    "plugin:react/recommended",
-    "standard",
-    "eslint:recommended",
-    "prettier",
+    'plugin:react/recommended',
+    'standard',
+    'eslint:recommended',
+    'prettier',
   ],
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
-    sourceType: "module",
+    sourceType: 'module',
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ['react', '@typescript-eslint', 'jest'],
   globals: {
-    react: "readonly",
+    react: 'readonly',
+  },
+  rules: {
+    'react/prop-types': 'off',
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': ['error']
+  },
+  settings: {
+    react: {
+      'version': 'detect',
+    },
   },
 };
